@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Navbar, Footer } from "./components";
+import { Home, About, NotFound, CallOfDuty, GrandTheftAuto, RainbowSixSiege } from "./pages";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar color="light" light expand="md" />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about/" element={<About />} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="/call-of-duty-modern-warfare-2/" element={<CallOfDuty />} />
+          <Route path="/grand-theft-auto-5/" element={<GrandTheftAuto />} />
+          <Route path="/tom-clancys-rainbow-six-siege/" element={<RainbowSixSiege />} />
+        </Routes>
+      </Router>
+      <Footer />
+    </>
   );
 }
 
