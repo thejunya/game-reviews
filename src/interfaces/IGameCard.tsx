@@ -1,4 +1,4 @@
-export interface IPages {
+export interface IGameCard {
   image: string;
   title: string;
   description: string;

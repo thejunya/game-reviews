@@ -1,59 +1,61 @@
 import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle, Col, Row, Container, CardImg } from "reactstrap";
-import background from "../assets/images/backgrounds/home-background.gif";
-import { sergey, daniil, kirill, madi } from "../assets/images";
+import { home_background as background, sergey, daniil, kirill, madi } from "../assets";
 import { IPersonCard } from "../interfaces/IPersonCard";
 
-const people: IPersonCard[] = [
-  {
-    title: "Сергей Кухарев",
-    subtitle: "3бАСУ1",
-    text: "Фронтэнд разработчик",
-    link: "https://vk.com/osergeyk",
-    image: sergey,
-  },
-  {
-    title: "Даниил Тонких",
-    subtitle: "3бАСУ1",
-    text: "Фронтэнд разработчик",
-    link: "https://vk.com/wildchair",
-    image: daniil,
-  },
-  {
-    title: "Кирилл Плетминцев",
-    subtitle: "3бАСУ1",
-    text: "Фронтэнд разработчик",
-    link: "https://vk.com/kirillsanta",
-    image: kirill,
-  },
-];
-
 function About() {
+  const personCards: IPersonCard[] = [
+    {
+      title: "Сергей Кухарев",
+      subtitle: "3бАСУ1",
+      text: "Фронтэнд разработчик",
+      link: "https://vk.com/osergeyk",
+      image: sergey,
+    },
+    {
+      title: "Даниил Тонких",
+      subtitle: "3бАСУ1",
+      text: "Фронтэнд разработчик",
+      link: "https://vk.com/wildchair",
+      image: daniil,
+    },
+    {
+      title: "Кирилл Плетминцев",
+      subtitle: "3бАСУ1",
+      text: "Фронтэнд разработчик",
+      link: "https://vk.com/kirillsanta",
+      image: kirill,
+    },
+  ];
+
+  const backgroundStyles = {
+    backgroundImage: "url(" + background + ")",
+    backgroundSize: "cover",
+    backgroundAttachment: "fixed",
+    backgroundPosition: "top",
+    backgroundRepeat: "no-repeat",
+  };
+
+  const cardStyles = {
+    marginLeft: "auto",
+    marginRight: "auto",
+    width: "20rem",
+  };
+
   return (
-    <div
-      style={{
-        backgroundImage: "url(" + background + ")",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-        backgroundPosition: "top",
-        backgroundRepeat: "no-repeat",
-      }}>
-      <Container className="pt-5">
+    <div className="py-5" style={backgroundStyles}>
+      <Container>
         <Row>
-          {people.map(person => (
+          {personCards.map(personCard => (
             <Col className="mb-5">
-              <Card
-                className="mx-auto"
-                style={{
-                  width: "18rem",
-                }}>
-                <img alt="Sample" src={person.image} />
+              <Card style={cardStyles}>
+                <CardImg top width="100%" alt="Sample" src={personCard.image} />
                 <CardBody>
-                  <CardTitle tag="h5">{person.title}</CardTitle>
+                  <CardTitle tag="h5">{personCard.title}</CardTitle>
                   <CardSubtitle className="mb-2 text-muted" tag="h6">
-                    {person.subtitle}
+                    {personCard.subtitle}
                   </CardSubtitle>
                   <CardText>Фронтэнд разработчик</CardText>
-                  <Button type="button" href={person.link}>
+                  <Button type="button" color="danger" href={personCard.link}>
                     VK страница
                   </Button>
                 </CardBody>
@@ -63,7 +65,7 @@ function About() {
         </Row>
       </Container>
 
-      <Container className="pb-5">
+      <Container>
         <Card className="my-2">
           <CardImg alt="Card image cap" src={madi} top width="100%" />
           <CardBody>

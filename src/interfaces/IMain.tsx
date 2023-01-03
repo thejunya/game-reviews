@@ -3,8 +3,15 @@ export interface IMain extends React.HTMLAttributes<HTMLDivElement> {
   background: string;
 }
 
+export interface IMainTitle {
+  children: string;
+  color: string;
+}
+
 export interface IMainText {
   children: string;
+  size: number;
+  color: string;
 }
 
 export interface IMainCarousel extends React.HTMLAttributes<HTMLDivElement> {

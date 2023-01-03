@@ -3,16 +3,17 @@ import { Fade } from "react-awesome-reveal";
 import { IHeader } from "../interfaces/IHeader";
 
 function Header(props: IHeader) {
+  const headerStyles = {
+    minHeight: "calc(100vh - 56px)",
+    backgroundImage: "url(" + props.background + ")",
+    backgroundSize: "cover",
+    backgroundAttachment: "fixed",
+    backgroundPosition: "top",
+    backgroundRepeat: "no-repeat",
+  };
+
   return (
-    <header
-      style={{
-        minHeight: "calc(100vh - 56px)",
-        backgroundImage: "url(" + props.background + ")",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-        backgroundPosition: "top",
-        backgroundRepeat: "no-repeat",
-      }}>
+    <header style={headerStyles}>
       <Container className="d-flex align-items-end" style={{ minHeight: "calc(100vh - 56px)" }}>
         <div className="pb-5">
           <Fade direction="up" delay={500} triggerOnce={true}>

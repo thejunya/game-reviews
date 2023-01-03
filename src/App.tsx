@@ -5,7 +5,7 @@ import { Home, About, NotFound, CallOfDuty, GrandTheftAuto, RainbowSixSiege } fr
 function App() {
   return (
     <>
-      <Navbar color="light" light expand="md" />
+      <Navbar color="danger" dark expand="md" />
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />

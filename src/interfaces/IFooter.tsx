@@ -1,7 +1,11 @@
+export interface IFooter extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode;
+}
+
 export interface IFooterLink extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode;
   text: string;
   link: string;
-  children: React.ReactNode;
 }
 
 export interface IFooterTitle {
@@ -10,6 +14,6 @@ export interface IFooterTitle {
 
 export interface IFooterCopyright {
   year: number;
-  websiteName: string;
+  text: string;
   link: string;
 }

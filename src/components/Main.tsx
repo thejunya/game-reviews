@@ -1,53 +1,42 @@
 import { useState } from "react";
 import { Container, Nav, NavItem, NavLink, UncontrolledCarousel } from "reactstrap";
-import { IMain, IMainText, IMainCarousel } from "../interfaces/IMain";
-import { CompetitiveSR, MinimumSR, RecommendedSR, Ultra4KSR } from ".";
 import { Fade } from "react-awesome-reveal";
+import { IMain, IMainText, IMainCarousel, IMainTitle } from "../interfaces/";
+import { Minimum, Competitive, Recommended, Ultra4K } from ".";
 
 export function Main({ children, background }: IMain) {
-  return (
-    <main
-      style={{
-        backgroundImage: "url(" + background + ")",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-        backgroundPosition: "top",
-        backgroundRepeat: "no-repeat",
-      }}>
-      <section style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", backdropFilter: "blur(10px)" }}>{children}</section>
-    </main>
-  );
+  const mainStyles = {
+    backgroundImage: "url(" + background + ")",
+    backgroundSize: "cover",
+    backgroundAttachment: "fixed",
+    backgroundPosition: "top",
+    backgroundRepeat: "no-repeat",
+  };
+
+  return <main style={mainStyles}>{children}</main>;
 }
 
-export function MainTitle({ children }: IMainText) {
+export function MainTitle({ children, color }: IMainTitle) {
   return (
-    <Container className="py-5">
+    <Container className="py-4">
       <Fade delay={500} triggerOnce={true}>
-        <p className="display-1 text-light text-center">{children}</p>
+        <p className={`display-1 text-${color} text-center`}>{children}</p>
       </Fade>
     </Container>
   );
 }
 
-export function MainTopic({ children }: IMainText) {
+export function MainText({ children, size, color }: IMainText) {
   return (
     <Fade delay={500} triggerOnce={true}>
-      <p className="display-5 text-danger">{children}</p>
-    </Fade>
-  );
-}
-
-export function MainText({ children }: IMainText) {
-  return (
-    <Fade delay={500} triggerOnce={true}>
-      <p className="display-6 text-light">{children}</p>
+      <p className={`display-${size} text-${color}`}>{children}</p>
     </Fade>
   );
 }
 
 export function MainCarousel({ children, items }: IMainCarousel) {
   return (
-    <Container className="pb-5">
+    <Container className="py-4">
       {children}
       <Fade delay={750} triggerOnce={true}>
         <UncontrolledCarousel items={items} />
@@ -59,7 +48,7 @@ export function MainCarousel({ children, items }: IMainCarousel) {
 export function MainSystemRequirements() {
   const [flag, setFlag] = useState(1);
   return (
-    <Container className="pb-5">
+    <Container className="py-4">
       <Nav className="mb-5" justified fill tabs vertical={window.innerWidth <= 992 ? true : false}>
         <NavItem>
           <NavLink href="#" active={flag === 1} onClick={() => setFlag(1)}>
@@ -82,10 +71,10 @@ export function MainSystemRequirements() {
           </NavLink>
         </NavItem>
       </Nav>
-      {(flag === 1 && <MinimumSR />) ||
-        (flag === 2 && <RecommendedSR />) ||
-        (flag === 3 && <CompetitiveSR />) ||
-        (flag === 4 && <Ultra4KSR />)}
+      {(flag === 1 && <Minimum />) ||
+        (flag === 2 && <Recommended />) ||
+        (flag === 3 && <Competitive />) ||
+        (flag === 4 && <Ultra4K />)}
     </Container>
   );
 }

@@ -1,68 +1,77 @@
-import { Header, Main, MainCarousel, MainTitle, MainSystemRequirements } from "../components";
-import { IHeader } from "../interfaces/IHeader";
-import { IMainCarouselItem } from "../interfaces/IMain";
-import { gta5Item1, gta5Item2, gta5Item3, gta5Item4, gta5Item5, gta5Item6 } from "../assets/images";
-
-import background from "../assets/images/backgrounds/gta-5-background.jpeg";
-import { MainText, MainTopic } from "../components/Main";
-
-const header: IHeader = {
-  background: background,
-  title: "Теперь доступно для PS5 и Xbox Series X/S",
-  description: "Испытайте развлекательные блокбастеры, Grand Theft Auto V и Grand Theft Auto Online.",
-  websiteLink: "https://www.rockstargames.com/gta-v",
-  trailerLink: "https://www.youtube.com/watch?v=QkkoHAzjnUs&t=1s",
-};
-
-const itemsFirst: IMainCarouselItem[] = [
-  {
-    key: 1,
-    src: gta5Item1,
-  },
-  {
-    key: 2,
-    src: gta5Item2,
-  },
-  {
-    key: 3,
-    src: gta5Item3,
-  },
-];
-
-const itemsSecond: IMainCarouselItem[] = [
-  {
-    key: 1,
-    src: gta5Item4,
-  },
-  {
-    key: 2,
-    src: gta5Item5,
-  },
-  {
-    key: 3,
-    src: gta5Item6,
-  },
-];
+import { Header, Main, MainCarousel, MainTitle, MainText, MainSystemRequirements } from "../components";
+import { IHeader, IMainCarouselItem } from "../interfaces";
+import {
+  gta_5_header_background as headerBackground,
+  gta_5_main_background as mainBackground,
+  gta_5_item_1,
+  gta_5_item_2,
+  gta_5_item_3,
+  gta_5_item_4,
+  gta_5_item_5,
+  gta_5_item_6,
+} from "../assets/";
 
 function GrandTheftAuto() {
+  const headerProps: IHeader = {
+    background: headerBackground,
+    title: "Теперь доступно для PS5 и Xbox Series X/S",
+    description: "Испытайте развлекательные блокбастеры, Grand Theft Auto V и Grand Theft Auto Online.",
+    websiteLink: "https://www.rockstargames.com/gta-v",
+    trailerLink: "https://www.youtube.com/watch?v=QkkoHAzjnUs&t=1s",
+  };
+
+  const itemsFirst: IMainCarouselItem[] = [
+    {
+      key: 1,
+      src: gta_5_item_1,
+    },
+    {
+      key: 2,
+      src: gta_5_item_2,
+    },
+    {
+      key: 3,
+      src: gta_5_item_3,
+    },
+  ];
+
+  const itemsSecond: IMainCarouselItem[] = [
+    {
+      key: 1,
+      src: gta_5_item_4,
+    },
+    {
+      key: 2,
+      src: gta_5_item_5,
+    },
+    {
+      key: 3,
+      src: gta_5_item_6,
+    },
+  ];
+
   return (
     <>
-      <Header {...header} />
+      <Header {...headerProps} />
 
-      <Main background={background}>
-        <MainTitle>ИНФОРМАЦИЯ ДЛЯ ПОЛЬЗОВАТЕЛЕЙ</MainTitle>
+      <Main background={mainBackground}>
+        <MainTitle color="light">ИНФОРМАЦИЯ ДЛЯ ПОЛЬЗОВАТЕЛЕЙ</MainTitle>
 
         <MainCarousel items={itemsFirst}>
-          <MainTopic>ПОТРЯСАЮЩИЕ ВИЗУАЛЬНЫЕ ЭФФЕКТЫ</MainTopic>
-          <MainText>
+          <MainText size={5} color="danger">
+            ПОТРЯСАЮЩИЕ ВИЗУАЛЬНЫЕ ЭФФЕКТЫ
+          </MainText>
+          <MainText size={6} color="light">
             Улучшенные уровни точности и производительности благодаря новым графическим режимам с разрешением до 4K, до
             60 кадров в секунду, опциями HDR, трассировкой лучей, улучшенными качествами текстур и многим другим.
           </MainText>
         </MainCarousel>
 
         <MainCarousel items={itemsSecond}>
-          <MainTopic>GRAND THEFT AUTO ONLINE</MainTopic>
-          <MainText>
+          <MainText size={5} color="danger">
+            GRAND THEFT AUTO ONLINE
+          </MainText>
+          <MainText size={6} color="light">
             Почувствуйте новые уровни ощущения в режиме Мультиплеера GTA ONLINE. Различные и интересные миссии от
             привычных вам героев, гонка за улучшениями персонажа и его полная персонализация, новый меню дизайн, а также
             эксклюзивный контент, который вы встретите только в режиме ONLINE.
