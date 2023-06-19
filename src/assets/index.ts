@@ -38,3 +38,5 @@ export const sergey = require("./people/sergey.jpg") as string;
 export const daniil = require("./people/daniil.jpg") as string;
 export const kirill = require("./people/kirill.jpg") as string;
 export const madi = require("./people/image.jpg") as string;
+export const saran = require("./people/saran.jpg") as string;
+export const university = require("./people/university.jpg") as string;
